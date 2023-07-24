@@ -9,6 +9,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../supabase/auth/facebook.dart';
 import '../supabase/auth/google.dart';
 import '../utils/constants.dart';
+import 'package:age_sync/pages/email_signup.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login';
@@ -126,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                           const Text('Don\'t have an account?'),
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).pushNamed('TODO');
+                              Navigator.of(context).pushReplacementNamed(SignUp.routeName);
                             },
                             child: const Text('Sign up'),
                           )

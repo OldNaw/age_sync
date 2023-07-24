@@ -1,16 +1,19 @@
-import 'package:age_sync/pages/login_page.dart';
-import 'package:age_sync/widgets/home_page_buttons.dart';
+import 'package:age_sync/pages/tasks.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/home_page_buttons.dart';
+import 'login_page.dart';
 
-class Test extends StatefulWidget {
-  const Test({super.key});
+class HomePage extends StatefulWidget {
+  static const routeName = "/home-page";
+
+  const HomePage({super.key});
 
   @override
-  State<Test> createState() => _TestState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _TestState extends State<Test> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +23,7 @@ class _TestState extends State<Test> {
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey[900],
       ),
-            drawer: SafeArea(
+      drawer: SafeArea(
         child: Drawer(
           child: Column(
             children: [
@@ -53,7 +56,7 @@ class _TestState extends State<Test> {
                 },
                 title: const Text("Logout"),
                 leading: const Icon(Icons.logout),
-              )
+              ),
             ],
           ),
         ),
@@ -61,39 +64,47 @@ class _TestState extends State<Test> {
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(padding: EdgeInsets.symmetric(horizontal: 20)),
-
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-            Pathway(title: "Interests", imagePath: "https://img.icons8.com/?size=512&id=C584nZjnS8uU&format=png", screen: LoginPage(),),
-
-            SizedBox(width: 40,),
-
-            Pathway(title: "Chat", imagePath: "https://img.icons8.com/?size=512&id=D67ILaoWa5Dz&format=png", screen: LoginPage(),)
-            ],
-          ),
-
-          SizedBox(height: 130,),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-            Pathway(title: "Task list", imagePath: "https://img.icons8.com/?size=512&id=114426&format=png", screen: LoginPage(),),
-
-            SizedBox(width: 40,),
-
-            Pathway(title: "Other", imagePath: "https://img.icons8.com/?size=512&id=D67ILaoWa5Dz&format=png", screen: LoginPage())
-            ],
-          ),
-
-          SizedBox(height: 100,),
-        
-        ],
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Pathway(
+                  title: "Interests",
+                  imagePath:
+                      "https://img.icons8.com/?size=512&id=C584nZjnS8uU&format=png",
+                  screen: LoginPage(),
+                ),
+                SizedBox(width: 40),
+                Pathway(
+                  title: "Chat",
+                  imagePath:
+                      "https://img.icons8.com/?size=512&id=D67ILaoWa5Dz&format=png",
+                  screen: LoginPage(),
+                ),
+              ],
+            ),
+            SizedBox(height: 50), // Add spacing between the rows
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Pathway(
+                  title: "Task list",
+                  imagePath:
+                      "https://img.icons8.com/?size=512&id=114426&format=png",
+                  screen: Tasks(),
+                ),
+                SizedBox(width: 40),
+                Pathway(
+                  title: "Other",
+                  imagePath:
+                      "https://img.icons8.com/?size=512&id=D67ILaoWa5Dz&format=png",
+                  screen: LoginPage(),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
-  } 
+  }
 }
